@@ -11,7 +11,7 @@ import pandas as pd
 
 # N is batch size; D_in is input dimension;
 # H is hidden dimension; D_out is output dimension.
-N, D_in, H, D_out = 10, 4, 2, 3
+N, D_in, H, D_out = 10, 4, 5, 3
 
 #load
 datatrain = pd.read_csv('iris_train.csv')
@@ -111,12 +111,13 @@ ypred = model(xtest)
 
 _, predicted = torch.max(ypred.data, 1)
 
-print predicted
+for i in range(len(ytest)):
+    print "predicted", predicted[i],"actual", ytest.data[i]
 
 #get accuracy
-for x in ypred:
+"""for x in ypred:
     predset = list(x.data)
-    print sorted(predset)[2]
+    print sorted(predset)[2]"""
     
 #print(ytest)
 print('Accuracy of the network %d %%' % (100 * torch.sum(y_test==predicted) / 30))
