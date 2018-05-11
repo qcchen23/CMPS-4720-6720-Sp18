@@ -90,7 +90,7 @@ def test(path):
     clf = sklearn.naive_bayes.MultinomialNB()
 
     # test the classifier
-    test_classifier(X, files.target, clf, test_size=0.2, y_names=files.target_names)
+    test_classifier(X, files.target, clf, test_size=0.2, y_names=['Class 1', 'Class 2'])
 
 # do the main test
 test("/Users/chloechen/Downloads/dataset")
